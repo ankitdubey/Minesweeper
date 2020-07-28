@@ -42,6 +42,8 @@ class App extends React.Component {
       startGame: false,
       isGameOver:false,
       score: 0,
+      gridSize:4,
+      minesArray:[]
     });
   };
 
@@ -81,11 +83,12 @@ class App extends React.Component {
     const { numberOfRows, numberOfColumn } = this.state;
     let gridSize = numberOfRows * numberOfColumn;
     let minesArray = [];
-    let numberOfMines = parseInt(gridSize / 2);
+    let numberOfMines = parseInt(gridSize / 3);
     for (let i = 0; i < numberOfMines; i++) {
-      let randomNumber = Math.floor(Math.random() * gridSize); // Generate random number upto grid size
+      let randomNumber =  Math.floor(Math.random() * gridSize) + 1  ; // Generate random number upto grid size
       minesArray.push(randomNumber); // pushing mines for grid columns
     }
+    console.log("minesArray : ",minesArray);
     this.setState({
       gridSize: gridSize,
       minesArray: minesArray,
@@ -135,6 +138,8 @@ class App extends React.Component {
     let columnId = parseInt(event.target.id);
     let isGameOver = this.state.isGameOver;
     const { minesArray } = this.state;
+    console.log("minesArray : ",minesArray);
+    console.log("columnId : ",columnId);
     if (minesArray.indexOf(columnId) > -1) {
       isGameOver = true;
     }
