@@ -43,7 +43,9 @@ class App extends React.Component {
       isGameOver:false,
       score: 0,
       gridSize:4,
-      minesArray:[]
+      minesArray:[],
+      numberOfRows: 2,
+      numberOfColumn: 2
     });
   };
 
