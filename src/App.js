@@ -10,6 +10,7 @@ const cellStyle = {
   backgroundColor: "#0072ff",
   border: "2px solid #9c94dbba",
   fontWeight: "bold",
+  cursor: "pointer"
 };
 
 class App extends React.Component {
